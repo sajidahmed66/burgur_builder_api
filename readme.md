@@ -24,3 +24,11 @@ passing them in mongoose.connect function as param will result in errors and not
 2. Creation of  user model from userSchema with a method for generation jwt token; this model this aimed to use for creation of new user and logging in existing user.
 
 3. Validation of the data that being send via http by use of joi. "Joi" is similar to "Yup" that i used in fornt-end with formik for from validation. 
+         useless link:  https://stackoverflow.com/questions/66009560/yup-vs-joi-for-frontend-validation
+
+4. Registration of New user & authentication:
+
+        -create the router and add that router to the app.js
+        -use of lodash for passing objects and values as param
+        -using lodash helps us by writing less code.() lodash is imported as "_", use pick method to pick values and create an object an pass them as bla bla bla
+        -_.pick(thedeadedObject,[array of key name <type:String>])

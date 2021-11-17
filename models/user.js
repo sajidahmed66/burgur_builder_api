@@ -19,7 +19,7 @@ const userSchema = new Schema({
 });
 
 //userschema method for jwt token
-userSchema.methods.generateJWT = function () {
+userSchema.methods.generateAuthToken = function () {
     const token = jwt.sign({
         _id: this._id,
         email: this.email
@@ -29,11 +29,11 @@ userSchema.methods.generateJWT = function () {
 
 // validation of userschema with joi
 const validateUser = user => {
-    const schema = {
+    const schema = joi.object({
         email: joi.string().min(5).max(255).required().email(),
         password: joi.string().min(5).max(255).required()
-    };
-    return schema.validate('User', userSchema);
+    });
+    return schema.validate(user, userSchema);
 }
 
 module.exports.User = model('User', userSchema);
