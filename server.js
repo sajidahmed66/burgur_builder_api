@@ -1,5 +1,3 @@
-//install dotenv, express, morgan, bcrypt,jasonwebtoken, joi, lodash, cors and mongoose
-
 //conncet to mongodb server
 // Run server
 const dotenv = require('dotenv');
@@ -8,15 +6,11 @@ const app = require('./app');
 const mongoose = require('mongoose');
 
 //connect to mongodb via mongoose
-mongoose.connect(process.env.MONGODB_SERVER, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-}).then(() => {
-    console.log('Connected to MongoDB server');
-}).catch(err => {
-    console.log('Error while connecting to mongodb server')
-});
+console.log(process.env.MONGODB_SERVER);
+mongoose.connect(process.env.MONGODB_SERVER)
+    .then(() => console.log("Connected to MongoDB!"))
+    .catch(err => console.log("MongoDB Connection Failed!"));
+
 
 // connect to the server
 const port = process.env.PORT || 3001;
